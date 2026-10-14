@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}Assessment History{% endblock %}{% block content %}
+<section class="hero compact"><p class="eyebrow">SAVED RECORDS</p><h1>Assessment history</h1><p class="subtext">Latest 100 records saved on this computer/server.</p></section>
+<section class="panel">{% if rows %}<div class="table-wrap"><table><thead><tr><th>Name</th><th>Date</th><th>Performance</th><th>Score</th><th>Status</th></tr></thead><tbody>
+{% for row in rows %}<tr><td>{{ row.student_name }}</td><td>{{ row.created_at }}</td><td>{{ row.performance_label }}</td><td>{{ row.placement_probability }}%</td><td>{{ row.placement_status }}</td></tr>{% endfor %}</tbody></table></div>
+{% else %}<p>No assessments saved yet. <a href="/">Create your first assessment</a>.</p>{% endif %}</section>{% endblock %}

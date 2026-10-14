@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% block title %}Student Assessment{% endblock %}{% block content %}
+<section class="hero"><p class="eyebrow">STUDENT SUCCESS TOOL</p><h1>Understand your strengths.<br><span>Plan your next step.</span></h1>
+<p class="subtext">Enter academic, practical and skill details to receive a machine-learning assessment and improvement suggestions.</p></section>
+<form class="panel" action="/predict" method="post"><h2>Student information</h2><div class="form-grid">
+<label class="wide">Student name<input name="student_name" required maxlength="150" placeholder="Enter full name"></label>
+<label>Previous percentage (%)<input type="number" name="previous_percentage" min="0" max="100" step=".1" required value="78"></label>
+<label>Attendance (%)<input type="number" name="attendance" min="0" max="100" step=".1" required value="82"></label>
+<label>Study hours per day<input type="number" name="study_hours" min="0" max="24" step=".5" required value="3"></label>
+<label>Projects completed<input type="number" name="projects" min="0" max="100" required value="2"></label>
+<label>Internships<input type="number" name="internships" min="0" max="50" required value="1"></label>
+<label>Certifications<input type="number" name="certifications" min="0" max="100" required value="1"></label>
+<label>Coding skill (0–10)<input type="number" name="coding_skill" min="0" max="10" step=".1" required value="7"></label>
+<label>Technical skill (0–10)<input type="number" name="technical_skill" min="0" max="10" step=".1" required value="6"></label>
+<label>Communication (0–10)<input type="number" name="communication_skill" min="0" max="10" step=".1" required value="7"></label>
+<label>Aptitude (0–100)<input type="number" name="aptitude_score" min="0" max="100" step=".1" required value="75"></label>
+</div><button type="submit">Generate assessment <span>→</span></button>
+<p class="note">Important: the included model is trained on synthetic demo data. The placement score is not a guarantee of employment and is not validated for real-world use.</p></form>{% endblock %}

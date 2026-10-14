@@ -1,0 +1,6 @@
+{
+  "rows": 2500,
+  "performance_accuracy": 0.712,
+  "placement_accuracy": 0.658,
+  "warning": "Synthetic demo data metrics are not real-world model evidence."
+}

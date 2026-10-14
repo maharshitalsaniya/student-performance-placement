@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}Assessment Result{% endblock %}{% block content %}
+<a class="back" href="/">← New assessment</a><section class="hero compact"><p class="eyebrow">ASSESSMENT REPORT</p><h1>Here is your snapshot, {{ name }}.</h1><p class="subtext">Use this as a learning guide, not a promise of placement.</p></section>
+<div class="metrics"><article class="metric"><p>Predicted performance</p><strong>{{ performance }}</strong><small>Scikit-learn model</small></article>
+<article class="metric"><p>Placement model score</p><strong>{{ probability }}%</strong><small>Demo data only; not a reliable real-world probability</small></article>
+<article class="metric"><p>Readiness category</p><strong>{{ status }}</strong><small>Based on model output</small></article></div>
+<section class="two-col"><article class="panel"><h2>Strong areas</h2>{% if strong %}<ul class="good">{% for item in strong %}<li>{{ item }}</li>{% endfor %}</ul>{% else %}<p>Keep practising to build strengths.</p>{% endif %}</article>
+<article class="panel"><h2>Areas to improve</h2>{% if weak %}<ul class="weak">{% for item in weak %}<li>{{ item }}</li>{% endfor %}</ul>{% else %}<p>No weak areas identified by the current rules.</p>{% endif %}</article></section>
+<section class="panel"><h2>Improvement plan</h2><ol class="plan">{% for item in suggestions %}<li>{{ item }}</li>{% endfor %}</ol></section>
+<section class="panel"><h2>Submitted details</h2><div class="detail-grid">{% for key, value in values.items() %}<div><small>{{ key.replace('_',' ').title() }}</small><strong>{{ value }}</strong></div>{% endfor %}</div></section>{% endblock %}
